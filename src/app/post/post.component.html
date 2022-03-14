@@ -1,0 +1,36 @@
+<app-banner-small src="../../assets/images/bg2.jpg"></app-banner-small>
+
+<section class="dir">
+
+</section>
+
+<section class="main">
+    <div class="main__wrapper">
+        <div class="main__before">
+            <img src="../../assets/placeholders/blog1.jpg" class="main__thumbnail">
+            <div class="main__post">
+                <p class="main__post__title">Chân gà làm gì ngon? Tổng hợp 30+ món ngon từ chân gà siêu hấp dẫn</p>
+                <div class="main__post__info">
+                    <div class="main__post__info__before">
+                        <mat-icon>person_outline</mat-icon>
+                        <p>Tham Nguyen</p>
+                    </div>
+                    <div class="main__post__info__after">
+                        <p>14/3/2022</p>
+                        <mat-icon>calendar_today</mat-icon>
+                    </div>
+                </div>
+                <p class="main__post__desc">Chân gà từ lâu đã là món ăn ưa chuộng của nhiều người. Với cách chế biến đa dạng, có thể tùy chỉnh biến tấu cho ra các món ăn thơm ngon, hấp dẫn, càng ăn càng ghiền. Cộng với độ giòn ngon của chân gà tạo nên nét đặc biệt cho nguyên liệu dân dã này. Vậy, chân gà làm gì ngon? Cùng Barona theo dõi bài viết sau đây để xem cách làm những món ngon từ chân gà nhé!</p>
+                <div class="main__post__content" #contentDiv [innerHTML]="sanitizer.bypassSecurityTrustHtml(content)">
+                </div>
+            </div>
+        </div>
+        <div class="main__after">
+            <div class="main__layout">
+                <p class="main__layout__title">Mục lục</p>
+                <hr>
+                <p *ngFor="let item of layout, index as i" class="main__layout__item" (click)="scrollTo(i)">{{item.name}}</p>
+            </div>
+        </div>
+    </div>
+</section>

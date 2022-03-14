@@ -1,0 +1,173 @@
+.main, .drawer {
+    display: none;
+}
+.main-de {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    transition-duration: 0.4s;
+    user-select: none;
+    &__logo {
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        transition-duration: 0.4s;
+        img {
+            width: 80px;
+            transition-duration: 0.4s;
+        }
+    }
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        background-color: rgba(165, 60, 44, 0);
+        height: 70px;
+        -webkit-transition: background .4s ease-in;
+        -moz-transition: background .4s ease-in;
+        -o-transition: background .4s ease-in;
+        transition: background .4s ease-in;
+    }
+    &__item {
+        // transform: translateY(-10px) scaleY(0);
+        // opacity: 0;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 20px;
+        width: 180px;
+        color: white;
+        text-align: center;
+        font-size: 20px;
+        height: 50px;
+        line-height: 45px;
+        cursor: pointer;
+        transition-duration: 0.4s;
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    }
+    &--undocked {
+        .main-de {
+            &__wrapper {
+                background-color: rgba(165, 60, 44, 1);
+            }
+            &__item {
+                // transform: translateY(0) scaleY(1);
+                // opacity: 1;
+                margin-top: 10px;
+            }
+            &__logo {
+                margin: 6px;
+                padding: 4px;
+                padding-top: 8px;
+                padding-left: 8px;
+                border-radius: 10px;
+                background-color: #fff;
+                height: fit-content;
+                img {
+                    width: 40px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .main-de {display: none;}
+    .drawer {
+        display: block;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        transform: translateX(-100%);
+        color: #6d281d;
+        transition-duration: 0.4s;
+        
+        &__wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        &__close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            mat-icon {
+                font-size: 30px;
+            }
+        }
+        &__item {
+            font-size: 30px;
+            line-height: 30px;
+        }
+        &--visible {
+            transform: translateX(0%);
+        }
+    }
+    .main {
+        display: block;
+        position: fixed;
+        width: 100%;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+
+    
+        &__menu {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            display: flex;
+            mat-icon {
+                transition-duration: 0.4s;
+                font-size: 30px;
+                color: white;
+                margin-left: 5px;
+                margin-top: 5px;
+            }
+        }
+        &__cart {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            display: flex;
+            mat-icon {
+                font-size: 30px;
+                color: white;
+                margin-left: 5px;
+                margin-top: 5px;
+            }
+        }
+        &__logo {
+            transition-duration: 0.4s;
+            position: absolute;
+            top: 0px;
+            margin-top: 20px;
+            img {
+                width: 50px;
+            }
+        }
+        &--undocked {
+            .main {
+               &__menu, &__cart {
+                   mat-icon {
+                        color: wheat;
+                   }
+               }
+               &__logo {
+                 margin-top: 10px;
+            }
+            }
+        }
+    }
+}

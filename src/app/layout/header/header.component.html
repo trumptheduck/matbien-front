@@ -1,0 +1,46 @@
+<section class="main cdk-overlay-container" [ngClass]="{'main--undocked':!isDocked}">
+    <div class="main__menu cdk-overlay-pane" (click)="isDrawerVisible = true">
+        <mat-icon>menu</mat-icon>
+    </div>
+    <div class="main__logo cdk-overlay-pane">
+        <img src="../../../assets/images/logo.png">
+    </div>
+    <a routerLink="/home/display"><div class="main__cart cdk-overlay-pane">
+        <mat-icon>shopping_basket</mat-icon>
+    </div></a>
+
+</section>
+<section class="drawer cdk-overlay-container" [ngClass]="{'drawer--visible':isDrawerVisible}">
+
+    <div class="drawer__wrapper cdk-overlay-pane">
+        <a (click)="isDrawerVisible = false" routerLink="/home">
+            <p class="drawer__item">Trang chủ</p>
+        </a>
+        <a (click)="isDrawerVisible = false" routerLink="/home/display">
+            <p class="drawer__item">Sản phẩm</p>
+        </a>
+        <a (click)="isDrawerVisible = false" routerLink="/home">
+            <p class="drawer__item">Giới thiệu</p>
+        </a>
+        <a (click)="isDrawerVisible = false" routerLink="/home/blog">
+            <p class="drawer__item">Góc chia sẻ</p>
+        </a>
+        <a (click)="isDrawerVisible = false" routerLink="/home">
+            <p class="drawer__item">Liên hệ</p>
+        </a>
+    </div>
+    <div class="drawer__close cdk-overlay-pane" (click)="isDrawerVisible = false">
+        <mat-icon>close</mat-icon>
+    </div>
+</section>
+<div class="main-de cdk-overlay-container" [ngClass]="{'main-de--undocked':!isDocked}">
+    <div class="main-de__wrapper cdk-overlay-pane">
+        <a routerLink="/home/display"><div class="main-de__item">Sản phẩm</div></a>
+        <a routerLink="/home"><div class="main-de__item">Giới thiệu</div></a>
+        <a routerLink="/home"><div class="main-de__logo">
+            <img src="../../../assets/images/logo.png">
+        </div></a>
+        <a routerLink="/home/blog"><div class="main-de__item">Góc chia sẻ</div></a>
+        <a routerLink="/home"><div class="main-de__item">Liên hệ</div></a>
+    </div>
+</div>

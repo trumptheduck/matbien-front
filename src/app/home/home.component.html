@@ -1,0 +1,87 @@
+<section class="banner" id="parallaxbg" style="background-image: url(../../assets/images/bg1.jpg);">
+    <div class="banner__inner">
+        <p class="banner__title">MẬT BIỂN</p>
+        <p class="banner__subtitle">NƯỚC MẮM CỐT CÁ CƠM NHÀ LÀM</p>
+        <a routerLink="/home/display"><div class="banner__button">
+            <p>MUA NGAY</p>
+        </div></a> 
+    </div>
+    <div class="banner__display">
+        <div class="banner__display__inner">
+            <div class="banner__display__wrapper">
+                <img src="../../assets/images/bottle.png">
+            </div>
+            <div class="banner__display__button">
+                <p class="banner__display__button__title">Chai 500ml</p>
+                <p class="banner__display__button__price">Mua ngay</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="info">
+    <p class="info__title">CHÚNG TÔI ĐẢM BẢO</p>
+    <div class="info__wrapper">
+        <div class="info__item">
+            <div class="info__item__icon"><img src="../../assets/images/preservative.png"></div>
+            <p class="info__item__title">100% không chất bảo quản</p>
+            <p class="info__item__subtitle">Mật Biển được làm từ 100% nguyên liệu tự nhiên, muối và cá cơm tươi ngay từ dưới lòng biển.</p>
+        </div>
+        <div class="info__item">
+            <div class="info__item__icon"><img style="width: 70px;" src="../../assets/images/safety.png"></div>
+            <p class="info__item__title">An toàn vệ sinh thực phẩm</p>
+            <p class="info__item__subtitle">Với quy trình ướp ủ vệ sinh tuyệt đối và hầm ủ được trữ trên sân thượng. Mật Biển luôn đảm bảo vệ sinh an toàn thực phẩm.</p>
+        </div>
+        <div class="info__item">
+            <div class="info__item__icon"><img style="width: 40px;" src="../../assets/images/guarantee.png"></div>
+            <p class="info__item__title">Chất lượng thượng hạng</p>
+            <p class="info__item__subtitle">Nguyên liệu tươi và cao cấp hòa quyện với nhau cùng thời gian ủ lên tới ít nhất 12 tháng tạo ra hương vị khó cưỡng.</p>
+        </div>
+    </div>
+</section>
+
+<section class="imageview">
+    <div class="imageview__wrapper">
+        <div class="imageview__swiper">
+            <swiper
+            [slidesPerView]="1"
+            [spaceBetween]="0"
+            [autoplay]="{
+                delay: 3000
+            }"
+          >
+            <ng-template swiperSlide><img src="../../assets/images/journey0.jpg"></ng-template>
+            <ng-template swiperSlide><img src="../../assets/images/journey1.jpg"></ng-template>
+            <ng-template swiperSlide><img src="../../assets/images/journey2.jpg"></ng-template>
+          </swiper>
+        </div>
+        <div class="imageview__inner">
+            <p class="imageview__title">HÀNH TRÌNH TỚI BÀN ĂN</p>
+            <p class="imageview__content">Mật Biển là những giọt mật kết tinh những gì tinh túy nhất của biển. Sự ngọt ngào của cá cơm tươi hòa quyện với sự đậm đà của muối biển. Từng giọt sánh quyện, ngưng tụ sau 12 tháng ấp ủ. Dưới bàn tay của nghệ nhân, từng giọt nước mắm được đảm bảo về chất lượng và chín muồi về hương vị. Hãy cùng khám phá hành trình của Mật Biển từ dưới lòng đại dương đến bàn ăn nhé!</p>
+            <div class="imageview__button">KHÁM PHÁ THÊM</div>
+        </div>
+    </div>
+</section>
+
+<section class="health">
+    <p class="health__title">SỨC KHỎE LÀ VÀNG</p>
+    <div class="health__wrapper">
+        <div class="health__item">
+            <img src="../../assets/images/health1.jpg" class="health__item__img">
+            <p class="health__item__title">GIỮ CHO CƠ THỂ LUÔN KHỎE MẠNH</p>
+            <p class="health__item__content">Với nguyên liệu 100% Organic. Sử dụng Mật Biển mang lại sức khỏe tốt, tránh xa những chất hóa học độc hại có trong một số loại nước mắm ngoài thị trường.</p>
+        </div>
+        <div class="health__item health__item--offset">
+            <img src="../../assets/images/health2.jpg" class="health__item__img">
+            <p class="health__item__title">BỔ SUNG LƯỢNG PROTEIN CẦN THIẾT</p>
+            <p class="health__item__content">Kết tinh từ cá cơm tươi giàu protein cần thiết cho cơ thể. Mật Biển là nguồn cung Protein dồi dào cho gia đình bạn.</p>
+        </div>
+        <div class="health__item">
+            <img src="../../assets/images/health3.jpg" class="health__item__img">
+            <p class="health__item__title">NÂNG TẦM BỮA ĂN GIA ĐÌNH BẠN</p>
+            <p class="health__item__content">Bữa ăn là thời điểm quan trọng nhất trong ngày. Khi gia đình bạn sum vầy quanh mâm cơm. Với hương vị đậm đà, dù chấm hay nêm, Mật Biển sẽ khiến cho bữa cơm gia đình thêm phần đủ đầy.</p>
+        </div>
+    </div>
+</section>
+
+<app-blog-overview class="blog"></app-blog-overview>

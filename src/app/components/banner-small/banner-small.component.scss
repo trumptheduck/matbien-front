@@ -1,0 +1,11 @@
+.banner {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 200px;
+}
+@media only screen and (max-width: 600px) {
+    .banner {
+        height: 100px;
+    }
+}

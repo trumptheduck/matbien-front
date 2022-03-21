@@ -16,7 +16,20 @@ import { AnimateOnScrollModule } from 'ng2-animate-on-scroll';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { BlogOverviewComponent } from './components/blog-overview/blog-overview.component';
 import { BannerSmallComponent } from './components/banner-small/banner-small.component';
-import { PostComponent } from './post/post.component'
+import { PostComponent } from './post/post.component';
+import { AboutComponent } from './about/about.component';
+import { CheckoutComponent } from './checkout/checkout.component'
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { CurrencyformatPipe } from './core/pipes/currencyformat.pipe';
+import { MatDialogModule } from '@angular/material/dialog';
+import { SuccessDialogComponent } from './components/dialogs/success-dialog/success-dialog.component';
+import { MatButtonModule } from "@angular/material/button"
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ImagecdnPipe } from './core/pipes/imagecdn.pipe';
+import { UnixtodatePipe } from './core/pipes/unixtodate.pipe';
+import { OrdersComponent } from './orders/orders.component';
+import { OrderstatusPipe } from './core/pipes/orderstatus.pipe';
 
 @NgModule({
   declarations: [
@@ -30,6 +43,14 @@ import { PostComponent } from './post/post.component'
     BlogOverviewComponent,
     BannerSmallComponent,
     PostComponent,
+    AboutComponent,
+    CheckoutComponent,
+    CurrencyformatPipe,
+    SuccessDialogComponent,
+    ImagecdnPipe,
+    UnixtodatePipe,
+    OrdersComponent,
+    OrderstatusPipe,
     
   ],
   imports: [
@@ -39,7 +60,12 @@ import { PostComponent } from './post/post.component'
     MatIconModule,
     MatExpansionModule,
     SwiperModule,
-    AnimateOnScrollModule.forRoot()
+    AnimateOnScrollModule.forRoot(),
+    HttpClientModule,
+    FormsModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

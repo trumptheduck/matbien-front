@@ -1,21 +1,11 @@
 <section class="blog">
     <p class="blog__title">CÂU CHUYỆN Ủ MẮM</p>
     <div class="blog__wrapper">
-        <div (click)="viewPost()" class="blog__item">
-            <img src="../../assets/images/blog1.jpg" class="blog__item__thumbnail">
-            <p class="blog__item__time">25/2/2022 - 10:11</p>
-            <p class="blog__item__title">Quá Trình Làm Nên Mật Biển</p>
-        </div>
-        <div (click)="viewPost()" class="blog__item">
-            <img src="../../assets/images/blog1.jpg" class="blog__item__thumbnail">
-            <p class="blog__item__time">25/2/2022 - 10:11</p>
-            <p class="blog__item__title">Quá Trình Làm Nên Mật Biển</p>
-        </div>
-        <div (click)="viewPost()" class="blog__item">
-            <img src="../../assets/images/blog1.jpg" class="blog__item__thumbnail">
-            <p class="blog__item__time">25/2/2022 - 10:11</p>
-            <p class="blog__item__title">Quá Trình Làm Nên Mật Biển</p>
+        <div *ngFor="let post of posts" (click)="viewPost(post._id)" class="blog__item">
+            <img [src]="post.thumbnail | imagecdn" class="blog__item__thumbnail">
+            <p class="blog__item__time">{{post.timestamp | unixtodate}} - {{post.author.fullname}}</p>
+            <p class="blog__item__title">{{post.title}}</p>
         </div>
     </div>
-    <a routerLink="/home/blog"><div class="blog__button">TẤT CẢ BÀI VIẾT</div></a>
+    <a routerLink="/blog"><div class="blog__button">TẤT CẢ BÀI VIẾT</div></a>
 </section>

@@ -1,0 +1,84 @@
+.main {
+    position: relative;
+    padding-top: 50px;
+    width: 70%;
+    left: 15%;
+    &__title {
+        font-family: Title;
+        font-size: 40px;
+        line-height: 40px;
+        text-align: center;
+    }
+    &__wrapper {
+        padding-top: 60px;
+    }
+    &__video {
+        position: relative;
+        width: 48vw;
+        height: 27vw;
+    }
+    &__block {
+        margin-bottom: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: row;
+        &__before ,&__after, &__large {
+            position: relative;
+            padding-left: 2.5%;
+            padding-right: 2.5%;
+            width: 45%;
+            img {
+                width: 100%;
+            }
+            p {
+                margin-right: 10%;
+                font-size: 20px;
+                line-height: 24px;
+            }
+            h2 {
+                font-size: 30px;
+                font-family: Generic;
+            }
+        }
+        &__large {
+            width: 100%;
+            position: relative;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .main {
+        overflow: hidden;
+        left: 2%;
+        width: 96%;
+        &__title {
+            font-size: 30px;
+            line-height: 20px;
+        }
+        &__wrapper {
+            padding-top: 30px;
+        }
+        &__block {
+            position: relative;
+            flex-direction: column;
+            &--reversed {
+                flex-direction: column-reverse;
+            }
+            &__before ,&__after, &__large {
+                width: 100%;
+                position: relative;
+                padding: 0%;
+                img {
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+            }
+            p {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+        }
+    }
+}

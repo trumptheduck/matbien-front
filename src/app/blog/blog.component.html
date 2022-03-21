@@ -9,39 +9,11 @@
             <div class="main__filter__category">Công thức nấu ăn</div>
         </div>
         <div class="main__inner">
-            <div class="main__item main__item--large" (click)="viewPost()" style="background-image: url(../../assets/placeholders/blog1.jpg);">
+            <div *ngFor="let post of posts, index as i" class="main__item " [ngClass]="{'main__item--large':i == 0}" (click)="viewPost(post._id)" [style]="'background-image: url('+(post.thumbnail | imagecdn)+');'">
                 <div class="main__item__inner">
-                    <p class="main__item__title">Chân gà làm gì ngon? Tổng hợp 30+ món ngon từ chân gà siêu hấp dẫn</p>
-                    <p class="main__item__subtitle">Tham Nguyen · 14/3/2022</p>
-                    <p class="main__item__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, in eius nulla blanditiis voluptate totam accusamus tempora cum consectetur quod, corporis porro! Sunt placeat distinctio sit magnam autem amet ipsum!</p>
-                </div>
-            </div>
-            <div class="main__item" (click)="viewPost()" style="background-image: url(../../assets/placeholders/blog2.jpg);">
-                <div class="main__item__inner">
-                    <p class="main__item__title">Lorem ipsum dolor sit amet consectetur adipisicing elit dolorum provident.</p>
-                    <p class="main__item__subtitle">Tham Nguyen · 14/3/2022</p>
-                    <p class="main__item__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, in eius nulla blanditiis voluptate totam accusamus tempora cum consectetur quod, corporis porro! Sunt placeat distinctio sit magnam autem amet ipsum!</p>
-                </div>
-            </div>
-            <div class="main__item" (click)="viewPost()" style="background-image: url(../../assets/placeholders/blog3.jpg);">
-                <div class="main__item__inner">
-                    <p class="main__item__title">Lorem ipsum dolor sit amet consectetur adipisicing elit dolorum provident.</p>
-                    <p class="main__item__subtitle">Tham Nguyen · 14/3/2022</p>
-                    <p class="main__item__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, in eius nulla blanditiis voluptate totam accusamus tempora cum consectetur quod, corporis porro! Sunt placeat distinctio sit magnam autem amet ipsum!</p>
-                </div>
-            </div>
-            <div class="main__item" (click)="viewPost()" style="background-image: url(../../assets/placeholders/blog4.jpg);">
-                <div class="main__item__inner">
-                    <p class="main__item__title">Lorem ipsum dolor sit amet consectetur adipisicing elit dolorum provident.</p>
-                    <p class="main__item__subtitle">Tham Nguyen · 14/3/2022</p>
-                    <p class="main__item__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, in eius nulla blanditiis voluptate totam accusamus tempora cum consectetur quod, corporis porro! Sunt placeat distinctio sit magnam autem amet ipsum!</p>
-                </div>
-            </div>
-            <div class="main__item" (click)="viewPost()" style="background-image: url(../../assets/placeholders/blog5.jpg);">
-                <div class="main__item__inner">
-                    <p class="main__item__title">Lorem ipsum dolor sit amet consectetur adipisicing elit dolorum provident.</p>
-                    <p class="main__item__subtitle">Tham Nguyen · 14/3/2022</p>
-                    <p class="main__item__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, in eius nulla blanditiis voluptate totam accusamus tempora cum consectetur quod, corporis porro! Sunt placeat distinctio sit magnam autem amet ipsum!</p>
+                    <p class="main__item__title">{{post.title}}</p>
+                    <p class="main__item__subtitle">{{post.author.fullname}} · {{post.timestamp | unixtodate}}</p>
+                    <p class="main__item__desc">{{post.desc}}</p>
                 </div>
             </div>
         </div>

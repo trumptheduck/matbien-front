@@ -1,0 +1,62 @@
+.title {
+    font-size: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-family: Title;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.main {
+    display: none;
+}
+.main-de {
+    padding-bottom: 50px;
+    table {
+        position: relative;
+        left: 2%;
+        width: 96%;
+        border-collapse: collapse;
+        border-top: 1px solid rgba(0, 0, 0, 0.3);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    }
+    th, td {
+        border-top: 1px solid rgba(0, 0, 0, 0.3);
+        text-align: center;
+    }
+    td {
+            font-size: 20px;
+            vertical-align: top;
+            padding: 20px;
+            padding-top: 30px;
+        }
+    th {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-size: 22px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .title {
+        font-size: 35px;
+        padding-bottom: 20px;
+    }
+    .main-de {
+        display: none;
+    }
+    .main {
+        padding-bottom: 30px;
+        display: block;
+        mat-expansion-panel {
+            padding-bottom: 20px;
+            padding-top: 20px;
+            margin-bottom: 10px;
+        }
+        mat-panel-title{
+            font-size: 20px;
+        }
+        p, div {
+            font-size: 18px;
+        }
+    }
+}

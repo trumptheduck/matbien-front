@@ -1,0 +1,91 @@
+<app-banner-small src="../../assets/images/bg2.jpg"></app-banner-small>
+<p class="title">GIỎ HÀNG</p>
+<section class="info">
+    <section *ngFor="let data of order.data" class="info__mobile__before">
+        <div class="info__mobile__before__first">
+            <img src="../../assets/placeholders/namngu.png" alt="">
+        </div>
+        <div class="info__mobile__before__second">
+            <p class="info__mobile__name">{{data.product.name}}({{data.spec.name}})</p>
+            <div class="info__amount">
+                <div (click)="changeAmount(data, -1)" class="info__amount__minus">-</div>
+                <div class="info__amount__value">{{data.amount}}</div>
+                <div (click)="changeAmount(data, +1)" class="info__amount__add">+</div>
+            </div>
+            <p class="info__mobile__price">Tổng: {{data.spec.price*data.amount | currencyformat}}đ</p>
+        </div>
+    </section>
+    <div class="info__before">
+        <table>
+            <thead>
+                <th>Hình ảnh</th>
+                <th>Sản phẩm</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Tổng cộng</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of order.data">
+                    <td><img src="../../assets/placeholders/namngu.png" alt=""></td>
+                    <td class="info__name">{{data.product.name}}({{data.spec.name}})</td>
+                    <td>{{data.spec.price | currencyformat}}đ</td>
+                    <td>
+                        <div class="info__amount">
+                            <div (click)="changeAmount(data, -1)" class="info__amount__minus">-</div>
+                            <div class="info__amount__value">{{data.amount}}</div>
+                            <div (click)="changeAmount(data, +1)" class="info__amount__add">+</div>
+                        </div>
+                    </td>
+                    <td>{{data.spec.price*data.amount | currencyformat}}đ</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="info__after">
+        <div class="info__block">
+            <input type="text" placeholder="Nhập mã giảm giá">
+            <button>Áp dụng</button>
+        </div>
+        <div class="info__block info__block--bordered">
+            <p class="info__block__before">Tạm tính:</p>
+            <p class="info__block__after">{{calculateTotal(order.data)| currencyformat}}đ</p>
+        </div>
+        <div class="info__block info__block--bordered">
+            <p class="info__block__before">Tổng cộng:</p>
+            <p class="info__block__after">{{calculateTotal(order.data)| currencyformat}}đ</p>
+        </div>
+    </div>
+</section>
+
+<section class="order">
+    <div class="order__block">
+        <p class="order__block__title">Thông tin khách hàng</p>
+        <div class="order__block__item order__block__item--double">
+            <input [(ngModel)]="order.customerName" (change)="saveDraft()" type="text" placeholder="Họ và tên" name="fullname">
+            <input [(ngModel)]="order.phone" (change)="saveDraft()" type="text" placeholder="Số điện thoại" name="phone">
+        </div>
+        <div class="order__block__item order__block__item--double">
+            <input [(ngModel)]="order.email" (change)="saveDraft()" type="text" placeholder="Email" name="email">
+            <input [(ngModel)]="order.address" (change)="saveDraft()" type="text" placeholder="Địa chỉ" name="address">
+        </div>
+        <div class="order__block__item order__block__item--double">
+            <select [(ngModel)]="order.province" (change)="saveDraft()" (ngModelChange)="onProvinceChange()">
+                <option [value]="addressPlaceholder">Tỉnh/Thành phố</option>
+                <option *ngFor="let location of provinces" [ngValue]="location">{{location.name}}</option>
+            </select>
+            <select [(ngModel)]="order.district" (change)="saveDraft()" (ngModelChange)="onDistrictChange()">
+                <option [value]="addressPlaceholder">Quận/Huyện</option>
+                <option *ngFor="let location of districts" [ngValue]="location">{{location.name}}</option>
+            </select>
+            <select [(ngModel)]="order.ward" (change)="saveDraft()">
+                <option [value]="addressPlaceholder">Xã/Phường</option>
+                <option *ngFor="let location of wards" [ngValue]="location">{{location.name}}</option>
+            </select>
+        </div>
+        <div class="order__block__item">
+        </div>
+        <div (click)="submit()" class="submit">Xác nhận đặt hàng</div>
+        <a routerLink="/orders"><div class="submit" style="margin-top: -80px; margin-bottom: 80px;">Xem đơn đã đặt</div></a>
+    </div>
+</section>
+

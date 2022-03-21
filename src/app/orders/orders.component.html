@@ -1,0 +1,57 @@
+<app-banner-small src="../../assets/images/bg2.jpg"></app-banner-small>
+<p class="title">ĐƠN ĐÃ ĐẶT</p>
+<section class="main-de">
+    <table>
+        <thead>
+            <th>Mã đơn</th>
+            <th>Họ tên</th>
+            <th>SĐT</th>
+            <th>Địa chỉ</th>
+            <th>Sản phẩm</th>
+            <th>Tổng thanh toán</th>
+            <th>Thời gian</th>
+            <th>Trạng thái</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let order of orders">
+                <td>{{order._id}}</td>
+                <td>{{order.customerName}}</td>
+                <td>{{order.phone}}</td>
+                <td>{{getFullAddress(order)}}</td>
+                <td>
+                    <p *ngFor="let payload of order.data">
+                        {{payload.name}} | Giá: {{payload.price | currencyformat}}đ | Số lượng: {{payload.amount}} | Tổng: {{payload.total | currencyformat}}đ
+                    </p>
+                    
+                </td>
+                <td>{{order.total | currencyformat}}đ</td>
+                <td>{{order.timestamp | unixtodate}}</td>
+                <td>{{order.status | orderstatus}}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<section class="main">
+    <mat-expansion-panel  *ngFor="let order of orders">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Đơn hàng: {{order._id}} <br> Thời gian: {{order.timestamp | unixtodate}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+            <p>Mã đơn: {{order._id}}</p>
+            <p>Họ tên: {{order.customerName}}</p>
+            <p>SĐT: {{order.phone}}</p>
+            <p>Địa chỉ: {{getFullAddress(order)}}</p>
+            <div>
+                Sản phẩm:
+                <p *ngFor="let payload of order.data">
+                    {{payload.name}} | Giá: {{payload.price | currencyformat}}đ | Số lượng: {{payload.amount}} | Tổng: {{payload.total | currencyformat}}đ
+                </p>
+                
+            </div>
+            <p>Tổng thanh toán: {{order.total | currencyformat}}đ</p>
+            <p>Thời gian: {{order.timestamp | unixtodate}}</p>
+            <p>Trạng thái: {{order.status | orderstatus}}</p>
+      </mat-expansion-panel>
+</section>

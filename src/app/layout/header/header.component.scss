@@ -17,6 +17,17 @@
             transition-duration: 0.4s;
         }
     }
+    &__cart {
+        position: fixed;
+        top: 10px;
+        right: 30px;
+        margin-top: 18px;
+        transition-duration: 0.4s;
+        mat-icon {
+            color: white;
+            font-size: 30px;
+        }
+    }
     &__wrapper {
         display: flex;
         justify-content: center;
@@ -50,6 +61,9 @@
         .main-de {
             &__wrapper {
                 background-color: rgba(165, 60, 44, 1);
+            }
+            &__cart {
+                margin-top: 8px;
             }
             &__item {
                 // transform: translateY(0) scaleY(1);

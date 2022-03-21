@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Post } from '../core/models/post.model';
+import { DataService } from '../core/services/data.service';
 
 @Component({
   selector: 'app-blog',
@@ -7,12 +9,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./blog.component.scss']
 })
 export class BlogComponent implements OnInit {
-
-  constructor(private router: Router) { }
+  posts: Post[] = [];
+  constructor(private router: Router, private data: DataService) {
+    this.data.getPosts((posts)=>{
+      this.posts = posts;
+      console.log(posts)
+    })
+  }
 
   ngOnInit(): void {
   }
   viewPost(id: string='') {
-    this.router.navigate(["/home/post"]);
+    this.router.navigate(["/post"], {queryParams: {"id": id}});
   }
 }

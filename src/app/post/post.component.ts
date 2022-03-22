@@ -1,8 +1,10 @@
 import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { Post } from '../core/models/post.model';
 import { ApiService } from '../core/services/api.service';
+import { SeoService } from '../core/services/seo.service';
 
 interface LayoutData {
   name: string,
@@ -34,7 +36,8 @@ export class PostComponent implements OnInit, AfterViewInit {
     public sanitizer: DomSanitizer,
     private route: ActivatedRoute,
     private router: Router,
-    private Api: ApiService) {
+    private Api: ApiService,
+    public seo: SeoService,) {
     this.route.queryParams
       .subscribe(params => {
         if (params.id === undefined) {
@@ -45,6 +48,15 @@ export class PostComponent implements OnInit, AfterViewInit {
             this.post = res;
             var html = document.createElement( 'section' );
             html.innerHTML = this.post.content;
+            seo.updateTitle(this.post.title);
+            seo.updateDescription(this.post.desc);
+            seo.updateOpenGraph({
+              description: this.post.desc,
+              image: environment.apiUrl+'/static/images/'+this.post.thumbnail,
+              title: this.post.title,
+              type: "article",
+              url: window.location.href
+            })
             let index = 0;
             html.querySelectorAll("h2").forEach(elem => {
               if (elem.textContent) {

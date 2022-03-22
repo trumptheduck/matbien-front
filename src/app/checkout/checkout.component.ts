@@ -4,6 +4,8 @@ import { Address, Order, OrderData } from '../core/models/order.model';
 import { AddressService } from '../core/services/address.service';
 import { DataService } from '../core/services/data.service';
 import { MatDialog } from '@angular/material/dialog';
+import { SeoService } from '../core/services/seo.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-checkout',
@@ -18,11 +20,19 @@ export class CheckoutComponent implements OnInit {
   public addressPlaceholder: Address = {code: "-1", name: ""};
 
 
-  constructor(private address: AddressService, private data: DataService, public dialog: MatDialog) {
+  constructor(private address: AddressService, private data: DataService, public dialog: MatDialog, public seo: SeoService) {
     this.address.getProvinces((provinces)=>{
       this.provinces = provinces;
     });
-    console.log(this.order);
+    seo.updateTitle("GIỎ HÀNG");
+    seo.updateDescription("Mật Biển là những giọt mật kết tinh những gì tinh túy nhất của biển. Sự ngọt ngào của cá cơm tươi hòa quyện với sự đậm đà của muối biển. Từng giọt sánh quyện, ngưng tụ sau 12 tháng ấp ủ. Dưới bàn tay của nghệ nhân, từng giọt nước mắm được đảm bảo về chất lượng và chín muồi về hương vị.");
+    seo.updateOpenGraph({
+      description: "Mật Biển là những giọt mật kết tinh những gì tinh túy nhất của biển. Sự ngọt ngào của cá cơm tươi hòa quyện với sự đậm đà của muối biển. Từng giọt sánh quyện, ngưng tụ sau 12 tháng ấp ủ. Dưới bàn tay của nghệ nhân, từng giọt nước mắm được đảm bảo về chất lượng và chín muồi về hương vị.",
+      image: environment.apiUrl+'/static/photo/bg.jpg',
+      title: "GIỎ HÀNG",
+      type: "website",
+      url: window.location.href
+    })
   }
   onProvinceChange() {
     this.address.getDistrictsByCode(this.order.province.code,(districts)=>{

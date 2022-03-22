@@ -5,6 +5,8 @@ import { Spec } from '../core/models/spec.model';
 import { DataService } from '../core/services/data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { SeoService } from '../core/services/seo.service';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-display',
   templateUrl: './display.component.html',
@@ -27,13 +29,23 @@ export class DisplayComponent implements OnInit {
     private data: DataService,
     public sanitizer: DomSanitizer,
     private snackbar: MatSnackBar,
-    private router: Router) {
+    private router: Router,
+    public seo: SeoService) {
     data.getProduct((item)=>{
       this.item = item;
       if (this.item.specs.length > 0) {
         this.spec = this.item.specs[0];
       }
       console.log(this.item);
+    })
+    seo.updateTitle("Mua Ngay Mật Biển");
+    seo.updateDescription("Mật Biển là những giọt mật kết tinh những gì tinh túy nhất của biển. Sự ngọt ngào của cá cơm tươi hòa quyện với sự đậm đà của muối biển. Từng giọt sánh quyện, ngưng tụ sau 12 tháng ấp ủ. Dưới bàn tay của nghệ nhân, từng giọt nước mắm được đảm bảo về chất lượng và chín muồi về hương vị.");
+    seo.updateOpenGraph({
+      description: "Mật Biển là những giọt mật kết tinh những gì tinh túy nhất của biển. Sự ngọt ngào của cá cơm tươi hòa quyện với sự đậm đà của muối biển. Từng giọt sánh quyện, ngưng tụ sau 12 tháng ấp ủ. Dưới bàn tay của nghệ nhân, từng giọt nước mắm được đảm bảo về chất lượng và chín muồi về hương vị.",
+      image: environment.apiUrl+'/static/photo/bg.jpg',
+      title: "Mua Ngay Mật Biển",
+      type: "website",
+      url: window.location.href
     })
   }
   showSnackbar() {
